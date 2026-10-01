@@ -1,0 +1,83 @@
+name: Game compatibility request
+description: A game you own doesn't start, crashes or runs badly in GameTransit.
+title: "[Game] "
+labels: ["game compatibility"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping GameTransit support more games. Please fill in every field, the more detail, the faster a
+        game can be looked at. Only games you own: requests about pirated copies are closed.
+
+        **Don't own a copy to test with?** Games can only be fixed once they can be tested. If you'd like a game
+        looked at sooner, you can contribute towards a copy on [Ko-fi](https://ko-fi.com/nikiizvorski). Put the
+        game's name and this issue's number in the Ko-fi message.
+  - type: input
+    id: game
+    attributes:
+      label: Game
+      description: The game's full name, as shown in its store.
+    validations:
+      required: true
+  - type: dropdown
+    id: store
+    attributes:
+      label: Where it's from
+      options:
+        - Steam
+        - Epic Games Store
+        - Added myself (another store or a standalone game)
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: What happens
+      options:
+        - Doesn't start at all
+        - Starts, then closes or crashes
+        - Runs, but with graphics problems
+        - Runs, but too slowly
+        - Controller, keyboard or mouse problems
+        - Sound or video problems
+        - Something else (describe below)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What you did and what you saw. When it happens (at start, a menu, a level), any error message.
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: Settings you tried
+      description: >-
+        From the game's settings in GameTransit: engine (Game Porting Toolkit or WineForge), D3DMetal version,
+        DirectX version, Retina, compatibility options, Visual C++. Which made a difference?
+      placeholder: "WineForge + D3DMetal 4: crashes at the menu. Game Porting Toolkit: doesn't start."
+  - type: input
+    id: mac
+    attributes:
+      label: Mac and macOS
+      description: Apple menu → About This Mac.
+      placeholder: "MacBook Pro M3 Pro, 18 GB, macOS 27.0"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: GameTransit version
+      description: Settings → Credits, or the release you downloaded.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Last session log
+      description: >-
+        In GameTransit open the game → Details → Show Last Session Log, and paste it here or attach the file.
+        Logs can contain your Mac's user name in folder paths: replace it with "user" if you prefer.
+      render: text

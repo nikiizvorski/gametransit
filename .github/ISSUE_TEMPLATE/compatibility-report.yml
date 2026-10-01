@@ -1,0 +1,81 @@
+name: Compatibility report
+description: Share how a game you own runs in GameTransit, so others know what works and with which settings.
+title: "[Report] "
+labels: ["compatibility report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for sharing! Reports help other players and show which games need work. Only games you own.
+        If a game doesn't start at all, use **Game compatibility request** instead.
+  - type: input
+    id: game
+    attributes:
+      label: Game
+      description: The game's full name, as shown in its store.
+    validations:
+      required: true
+  - type: dropdown
+    id: store
+    attributes:
+      label: Where it's from
+      options:
+        - Steam
+        - Epic Games Store
+        - Added myself (another store or a standalone game)
+    validations:
+      required: true
+  - type: dropdown
+    id: rating
+    attributes:
+      label: How it runs
+      options:
+        - Perfect, plays like on Windows
+        - Good, small issues
+        - Playable, noticeable issues
+        - Starts, but not really playable
+    validations:
+      required: true
+  - type: textarea
+    id: settings
+    attributes:
+      label: Settings that work
+      description: >-
+        From the game's settings in GameTransit: engine (Game Porting Toolkit or WineForge), D3DMetal version,
+        DirectX version, Retina, DLSS → MetalFX, compatibility options, and any in-game graphics settings.
+      placeholder: "WineForge + D3DMetal 4, DirectX 12, Retina off. In game: High preset, FSR Quality."
+    validations:
+      required: true
+  - type: input
+    id: performance
+    attributes:
+      label: Performance
+      description: Roughly what frame rate, and at what resolution. The performance HUD in the game's settings shows it.
+      placeholder: "50–60 FPS at 1728×1117"
+  - type: textarea
+    id: issues
+    attributes:
+      label: Issues you noticed
+      description: Graphics glitches, sound, controller, crashes in certain places, anything worth knowing.
+  - type: input
+    id: mac
+    attributes:
+      label: Mac and macOS
+      description: Apple menu → About This Mac.
+      placeholder: "MacBook Pro M3 Pro, 18 GB, macOS 27.0"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: GameTransit version
+      description: Settings → Credits.
+    validations:
+      required: true
+  - type: input
+    id: video
+    attributes:
+      label: Video (optional)
+      description: >-
+        A link to gameplay you recorded, for example on YouTube. Shared a video on social media? Link it here too.
+      placeholder: "https://youtube.com/…"
