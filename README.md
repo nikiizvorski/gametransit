@@ -14,8 +14,8 @@
 
 <div align="center">
 
-GameTransit is a free, console-style launcher for the Windows games you own. Add a game or sign in to Steam or
-the Epic Games Store, and GameTransit finds its artwork, sets up a Windows environment for it and runs it through Apple's Game
+GameTransit is a free, console-style launcher for the Windows games you own. Add a game or sign in to Steam, the
+Epic Games Store or GOG, and GameTransit finds its artwork, sets up a Windows environment for it and runs it through Apple's Game
 Porting Toolkit or WineForge — with a controller, a keyboard or a mouse.
 
 </div>
@@ -32,25 +32,29 @@ Porting Toolkit or WineForge — with a controller, a keyboard or a mouse.
 |---|---|
 | **_Console-style library_** | Hero artwork, a "Jump back in" row, search, light and dark appearance |
 | **_Controllers everywhere_** | Xbox, PlayStation and MFi controllers work in every screen and in games, keyboard and mouse too |
-| **_Add games your way_** | By file, folder or drag and drop, installers and redistributables are skipped automatically |
+| **_Add games your way_** | By file, folder or drag and drop, installers and redistributables are skipped automatically, a game can also start from its own `.bat` or `.cmd` script |
 | **_Automatic game info_** | Artwork and details from Steam (no account needed), SteamGridDB as an optional fallback |
+| **_Covers your way_** | Pick your own cover for any game, or choose where its artwork comes from |
 | **_Steam_** | Valve's Windows Steam client in its own Windows environment, games you install there appear in your library |
 | **_Epic Games Store_** | Epic's Windows launcher in its own Windows environment, games you install there appear in your library |
+| **_GOG_** | GOG Galaxy in its own Windows environment, games you install there appear in your library |
 | **_Offline start_** | Steam games whose anti-cheat launcher can't run on a Mac can start offline, single-player only |
 | **_Engine per game_** | Apple's Game Porting Toolkit or WineForge, and D3DMetal 4 or 3, chosen per game |
 | **_DLSS → MetalFX_** | Games that offer NVIDIA DLSS can get Apple's MetalFX upscaling instead, where D3DMetal supports it |
-| **_Display per game_** | Retina (full resolution) and Apple's Metal performance HUD, per game or for all games |
+| **_Display per game_** | Retina (full resolution) and Apple's Metal performance HUD, per game or for all games, the HUD's look, size and corner in Settings, Shift+F9 shows or hides it while playing |
 | **_Save backups_** | Saves are copied after every session and restored in one step |
 | **_Game tools_** | Run a game's own installers, add a trainer for single-player games, read the last session's log |
-| **_Engine updates_** | WineForge updates from its official releases, checksum-verified, with one-step rollback |
-| **_Tidy storage_** | Finds Windows environments left over from removed games and cleans them up |
+| **_Updates_** | GameTransit tells you when a new version is out, WineForge updates from its official releases, checksum-verified, with one-step rollback |
+| **_Dock_** | Recent games from the Dock, and any game as its own Dock shortcut |
+| **_Tidy storage_** | Cleans up Windows environments and shader caches left over from removed games, and lists each one before deleting |
+| **_Your language_** | English and 37 more languages, following your Mac or picked in Settings |
 
 ## Engines
 
 | Engine | Used for | Graphics |
 |---|---|---|
 | **_Game Porting Toolkit_** | Games you add, by default | Apple's Wine 7.7 with D3DMetal 3 |
-| **_WineForge_** | Steam, Epic Games, and games that need newer Windows features | Wine 11 with D3DMetal 4 (or 3, per game) |
+| **_WineForge_** | Steam, Epic Games, GOG Galaxy, and games that need newer Windows features | Wine 11 with D3DMetal 4 (or 3, per game) |
 
 GameTransit downloads Wine and WineForge from their official releases and checks them before installing.
 D3DMetal is Apple software that apps may not ship, so you download the Game Porting Toolkit from Apple with your
@@ -81,15 +85,16 @@ Download the new release's `.dmg` and drag GameTransit into **Applications** aga
 
 1. Install GameTransit (see [Installing](#installing)).
 2. Follow the welcome tour: it installs Rosetta 2 and the game engine and imports D3DMetal.
-3. Add a game, or install Steam or the Epic Games Launcher from Settings and sign in.
+3. Add a game, or install Steam, the Epic Games Launcher or GOG Galaxy from Settings and sign in.
 4. Play. Each game's details have its engine, display and tools settings.
 
 ## Where files go
 
 Everything lives in `~/Library/Application Support/GameTransit/`: `library.json`, `Engines/` (the Game Porting
 Toolkit's Wine, WineForge and D3DMetal), `Bottles/` (one Windows environment per game, with its saves and a
-`last-run.log`) and `Save Backups/`. Nothing is added to your `PATH`, `~/.wine` or system folders. To uninstall,
-delete the app and that folder.
+`last-run.log`) and `Save Backups/`. D3DMetal keeps its shader caches in macOS's own cache folder, and Settings →
+Storage shows and clears them. Nothing is added to your `PATH`, `~/.wine` or system folders. To uninstall, clear the
+shader caches in Settings → Storage, then delete the app and that folder.
 
 ## Game requests and bug reports
 
@@ -110,8 +115,8 @@ issue number in your message.
 ## Content policy
 
 GameTransit is for games you own. It does not endorse, support or help with pirated software in any way, and it
-contains nothing that bypasses DRM, store checks or license checks. Games from Steam and the Epic Games Store run
-through the stores' own clients with your own account. The per-game compatibility options are for single-player and
+contains nothing that bypasses DRM, store checks or license checks. Games from Steam, the Epic Games Store and GOG
+run through the stores' own clients with your own account. The per-game compatibility options are for single-player and
 offline play. Don't use them with online games that use anti-cheat.
 
 ## Support
@@ -155,6 +160,8 @@ GameTransit stands on the work of these projects and people:
   **not distributed with GameTransit**, game details come from the Steam Store.
 - [Epic Games Launcher](https://store.epicgames.com) by Epic Games — downloaded from Epic's servers and **not
   distributed with GameTransit**.
+- [GOG Galaxy](https://www.gog.com/galaxy) by GOG — downloaded from GOG's servers and **not distributed with
+  GameTransit**.
 - [Microsoft .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) — installed from Microsoft's own
   download for the Epic Games Launcher.
 - [SteamGridDB](https://www.steamgriddb.com) — community artwork for games that aren't on Steam.
@@ -163,5 +170,5 @@ GameTransit stands on the work of these projects and people:
 - [Whisky](https://github.com/Whisky-App/Whisky) and [MetalSharp](https://github.com/metalsharp/MetalSharp) —
   inspiration and ideas for running Windows games and Steam on macOS.
 
-Game data and artwork belong to their owners. GameTransit is not affiliated with Apple, Valve, Epic Games,
+Game data and artwork belong to their owners. GameTransit is not affiliated with Apple, Valve, Epic Games, GOG,
 Microsoft, CodeWeavers, SteamGridDB or any of the projects above.
