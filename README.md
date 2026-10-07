@@ -40,6 +40,7 @@ Porting Toolkit or WineForge — with a controller, a keyboard or a mouse.
 | **_GOG_** | GOG Galaxy in its own Windows environment, games you install there appear in your library |
 | **_Offline start_** | Steam games whose anti-cheat launcher can't run on a Mac can start offline, single-player only |
 | **_Engine per game_** | Apple's Game Porting Toolkit or WineForge, and D3DMetal 4 or 3, chosen per game |
+| **_Windows components_** | Microsoft's Visual C++ runtime and .NET Framework 4.8 per game, installed from Microsoft before the first launch |
 | **_DLSS → MetalFX_** | Games that offer NVIDIA DLSS can get Apple's MetalFX upscaling instead, where D3DMetal supports it |
 | **_Display per game_** | Retina (full resolution) and Apple's Metal performance HUD, per game or for all games, the HUD's look, size and corner in Settings, Shift+F9 shows or hides it while playing |
 | **_Save backups_** | Saves are copied after every session and restored in one step |
@@ -95,6 +96,23 @@ Toolkit's Wine, WineForge and D3DMetal), `Bottles/` (one Windows environment per
 `last-run.log`) and `Save Backups/`. D3DMetal keeps its shader caches in macOS's own cache folder, and Settings →
 Storage shows and clears them. Nothing is added to your `PATH`, `~/.wine` or system folders. To uninstall, clear the
 shader caches in Settings → Storage, then delete the app and that folder.
+
+## Privacy
+
+GameTransit has no accounts, ads, analytics or tracking. It doesn't collect or send anything about you, your Mac or
+your games. It only goes online for what you see it do:
+
+- **Artwork and game details:** the Steam store and SteamGridDB, asked with the game's title or Steam app ID.
+- **Updates and engines:** GitHub, to check for a new GameTransit release and to download WineForge and the Game
+  Porting Toolkit's Wine.
+- **Installers you start:** Steam, the Epic Games Launcher and GOG Galaxy from their own servers, and Microsoft's
+  Visual C++ and .NET installers when a game needs them. Microsoft's installers and the engines are checked against
+  pinned checksums.
+- **Store clients:** Steam, Epic and GOG Galaxy run as they do on Windows and talk to their own services when you sign
+  in. Your sign-in goes to them, never to GameTransit.
+
+Everything else stays on your Mac: your library, settings, saves, backups and logs. Games you add yourself have no
+internet unless you allow it in their settings.
 
 ## Game requests and bug reports
 
@@ -163,7 +181,7 @@ GameTransit stands on the work of these projects and people:
 - [GOG Galaxy](https://www.gog.com/galaxy) by GOG — downloaded from GOG's servers and **not distributed with
   GameTransit**.
 - [Microsoft .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework) — installed from Microsoft's own
-  download for the Epic Games Launcher.
+  download for the Epic Games Launcher and for games that need it.
 - [SteamGridDB](https://www.steamgriddb.com) — community artwork for games that aren't on Steam.
 - [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist) —
   installed from Microsoft's own download when a game needs it.
