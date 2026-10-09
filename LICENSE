@@ -16,10 +16,11 @@ You may not:
 - Sell GameTransit, charge for access to it, or bundle it with other software
 - Remove or change its copyright notices, credits or third-party notices
 
-Third-party components keep their own licenses. GameTransit includes small helper programs linked with the
-MinGW-w64 runtime, whose notices are in THIRD_PARTY_NOTICES.md. Software that GameTransit downloads or works with
-(such as Wine, WineForge, Apple's Game Porting Toolkit, Steam, the Epic Games Launcher and Microsoft's runtimes)
-is provided by its owners under their own terms and is not part of GameTransit.
+Third-party components keep their own licenses, and the restrictions above do not override the rights those
+licenses grant. GameTransit includes small helper programs linked with the MinGW-w64 runtime and modified Wine
+Media Foundation modules for WineForge Video under the GNU LGPL 2.1 or later. Their notices and source information
+are in THIRD_PARTY_NOTICES.md. The full Wine and WineForge engines, Apple's Game Porting Toolkit, Steam, the Epic
+Games Launcher and Microsoft's runtimes are obtained separately from their owners under their own terms.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
 THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

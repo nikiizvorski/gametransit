@@ -1,5 +1,28 @@
 # Third-party notices
 
+## WineForge Video: modified Wine modules
+
+GameTransit bundles `mfplat.dll`, `winegstreamer.dll` and `winegstreamer.so`, rebuilt from
+[WineForge 0.6.0.6](https://github.com/Alien4042x/WineForge/tree/0.6.0.6) by Alien4042x, based on
+[Wine](https://gitlab.winehq.org/wine/wine) by the WineHQ contributors.
+
+The video compatibility patches come from [winevideo](https://github.com/Jfishin/winevideo) by Jfishin and
+its contributors. Its VP9/AV1 patches derive from [Valve's Proton](https://github.com/ValveSoftware/Proton).
+GameTransit applies patches 0002–0007, adapting 0003, 0005 and 0007 to WineForge's source. This is adapted
+upstream work, not a wholly original GameTransit patch set. Copyright remains with the respective contributors.
+
+These modified Wine modules are licensed under the GNU Lesser General Public License, version 2.1 or later.
+The bundled `wineforge-video-0.6.0.6.tar.xz` contains `COPYING.LIB`, the applied patches, their attribution,
+`BUILD-INFO.txt` and the module manifest. In the copied upstream attribution, “Original” describes winevideo's
+work, not authorship by GameTransit. GameTransit's license does not replace these components' licenses.
+
+Corresponding source, including the modified WineForge source and build scripts, is packaged as
+`wineforge-video-0.6.0.6-source.tar.xz` for distribution alongside the
+[GameTransit release](https://github.com/nikiizvorski/gametransit/releases).
+The video package does not contain CrossOver binaries, Apple's D3DMetal or game files.
+
+## MinGW-w64 runtime
+
 GameTransit includes small Windows programs built from its own source: tools/steamwebhelper-wrapper and
 tools/gametransit-compat with llvm-mingw, and tools/game-compat-library with MinGW-w64's GCC. They are
 statically linked against the MinGW-w64 runtime, whose license requires the following notices in binary

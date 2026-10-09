@@ -39,7 +39,9 @@ Porting Toolkit or WineForge — with a controller, a keyboard or a mouse.
 | **_Epic Games Store_** | Epic's Windows launcher in its own Windows environment, games you install there appear in your library |
 | **_GOG_** | GOG Galaxy in its own Windows environment, games you install there appear in your library |
 | **_Offline start_** | Steam games whose anti-cheat launcher can't run on a Mac can start offline, single-player only |
-| **_Engine per game_** | Apple's Game Porting Toolkit or WineForge, and D3DMetal 4 or 3, chosen per game |
+| **_Engine per game_** | Apple's Game Porting Toolkit, WineForge or WineForge Video, and D3DMetal 4 or 3, chosen per game |
+| **_In-game videos_** | WineForge Video plays in-game videos that don't play on normal WineForge, as an engine choice or a switch for store games |
+| **_GPU per game_** | Choose the graphics card a game sees (Intel Arc, NVIDIA RTX 4080 or RTX 5080), for games that crash on the default one |
 | **_Windows components_** | Microsoft's Visual C++ runtime and .NET Framework 4.8 per game, installed from Microsoft before the first launch |
 | **_DLSS → MetalFX_** | Games that offer NVIDIA DLSS can get Apple's MetalFX upscaling instead, where D3DMetal supports it |
 | **_Display per game_** | Retina (full resolution) and Apple's Metal performance HUD, per game or for all games, the HUD's look, size and corner in Settings, Shift+F9 shows or hides it while playing |
@@ -56,6 +58,7 @@ Porting Toolkit or WineForge — with a controller, a keyboard or a mouse.
 |---|---|---|
 | **_Game Porting Toolkit_** | Games you add, by default | Apple's Wine 7.7 with D3DMetal 3 |
 | **_WineForge_** | Steam, Epic Games, GOG Galaxy, and games that need newer Windows features | Wine 11 with D3DMetal 4 (or 3, per game) |
+| **_WineForge Video_** | Games whose in-game videos don't play, chosen per game | WineForge with video modules included in the app |
 
 GameTransit downloads Wine and WineForge from their official releases and checks them before installing.
 D3DMetal is Apple software that apps may not ship, so you download the Game Porting Toolkit from Apple with your
@@ -167,8 +170,14 @@ GameTransit stands on the work of these projects and people:
   [Gcenx](https://github.com/Gcenx). GNU LGPL 2.1.
 - [CrossOver](https://www.codeweavers.com/crossover) by CodeWeavers — whose Wine work the Game Porting Toolkit's
   Wine is built on.
-- [WineForge](https://github.com/Alien4042x/WineForge) by Alien4042x — Wine 11 with D3DMetal support, used for Steam
-  and chosen games. GNU LGPL 2.1 or later, downloaded from its official releases, not bundled.
+- [WineForge](https://github.com/Alien4042x/WineForge) by Alien4042x — Wine 11 with D3DMetal support, used for store
+  clients and chosen games. GNU LGPL 2.1 or later. The full engine is downloaded from its official releases.
+  GameTransit bundles rebuilt `mfplat` and `winegstreamer` modules for the optional WineForge Video mode.
+- [winevideo](https://github.com/Jfishin/winevideo) by Jfishin and its contributors — the Media Foundation video
+  patches adapted to WineForge for WineForge Video. These modified Wine modules retain Wine's GNU LGPL 2.1 or
+  later license. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for attribution and corresponding source.
+- [Proton](https://github.com/ValveSoftware/Proton) by Valve and its contributors — the upstream VP9/AV1 work
+  ported through winevideo into the bundled video modules.
 - [DXMT](https://github.com/3Shain/dxmt) by 3Shain — a Metal-based DirectX 11 layer shipped with WineForge, its DLSS
   setup was a reference for GameTransit's.
 - [llvm-mingw](https://github.com/mstorsjo/llvm-mingw) by Martin Storsjö — the toolchain that builds GameTransit's
